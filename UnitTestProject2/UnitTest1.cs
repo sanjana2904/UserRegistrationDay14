@@ -1,4 +1,3 @@
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UserRegistrationDay14;
 
@@ -33,5 +32,22 @@ namespace UnitTestProject2
             Program program = new Program();
             Assert.ThrowsException<UserException>(() => program.validateName("sanjugmail.com"));
         }
+
+        [TestMethod]
+        public void TestValidPhoneNumber()
+        {
+            Program program = new Program();
+            bool result = program.validatePhoneNumber("91 7708796223");
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void TestInValidPhoneNumber()
+        {
+            Program program = new Program();
+            Assert.ThrowsException<UserException>(() => program.validateName("917708796223"));
+        }
+
+
     }
 }
