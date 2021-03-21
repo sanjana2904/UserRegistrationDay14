@@ -61,6 +61,19 @@ namespace UnitTestProject2
             Program program = new Program();
             Assert.ThrowsException<UserException>(() => program.validateName("sanjanaks"));
         }
+        [TestMethod]
+        public void TestValidUppercase()
+        {
+            Program program = new Program();
+            bool result = program.validateUppercase("saNjanak");
+            Assert.AreEqual(true, result);
+        }
 
+        [TestMethod]
+        public void TestInValidUppercase()
+        {
+            Program program = new Program();
+            Assert.ThrowsException<UserException>(() => program.validateName("Sanjana"));
+        }
     }
 }
