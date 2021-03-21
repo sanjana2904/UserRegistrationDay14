@@ -23,14 +23,14 @@ namespace UnitTestProject2
         public void TestEmailName()
         {
             Program program = new Program();
-            bool result = program.validateName("sanjugmail.com");
+            bool result = program.validateEmail("sanju@gmail.com");
             Assert.AreEqual(true, result);
         }
         [TestMethod]
         public void TestInvalidEmailName()
         {
             Program program = new Program();
-            Assert.ThrowsException<UserException>(() => program.validateName("sanjugmail.com"));
+            Assert.ThrowsException<UserException>(() => program.validateEmail("sanjugmail.com"));
         }
 
         [TestMethod]
@@ -73,7 +73,7 @@ namespace UnitTestProject2
         public void TestInValidUppercase()
         {
             Program program = new Program();
-            Assert.ThrowsException<UserException>(() => program.validateName("Sanjana"));
+            Assert.ThrowsException<UserException>(() => program.validateUppercase("sanjana"));
         }
 
         [TestMethod]
@@ -88,7 +88,7 @@ namespace UnitTestProject2
         public void TestInValidNumericcase()
         {
             Program program = new Program();
-            Assert.ThrowsException<UserException>(() => program.validateName("Sanj5ana"));
+            Assert.ThrowsException<UserException>(() => program.validateNumericcase("Sanjana"));
 
         }
 
