@@ -91,5 +91,21 @@ namespace UnitTestProject2
             Assert.ThrowsException<UserException>(() => program.validateName("Sanj5ana"));
 
         }
+
+        [TestMethod]
+        public void TestValidSpecialCharactercase()
+        {
+            Program program = new Program();
+            bool result = program.validateSpecialCharactercase("sanJana5*ks");
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void TestInValidSpecialCharactercase()
+        {
+            Program program = new Program();
+            Assert.ThrowsException<UserException>(() => program.validateName("Sanj5*ana"));
+
+        }
     }
 }
