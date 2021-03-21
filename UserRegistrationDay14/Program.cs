@@ -62,6 +62,19 @@ namespace UserRegistrationDay14
             return result;
         }
 
+        public bool validateNumericcase(string name)
+        {
+            string pattern = @"^(?=.*[A-Z])(?=.*[0-9]).{8,}$";
+            bool result = Regex.IsMatch(name, pattern);
+            if (!result)
+            {
+                throw new UserException("Numeric case Name Validation Failed");
+            }
+            return result;
+        }
+
+
+
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to User Registration Problem");
@@ -114,11 +127,22 @@ namespace UserRegistrationDay14
                 Console.WriteLine("Exception caught in Uppercase");
             }
 
+
+            try
+            {
+                result = program.validateNumericcase("sanJ5anaks");
+            }
+            catch (UserException)
+            {
+                Console.WriteLine("Exception caught in Numeric case");
+            }
+
             Console.WriteLine("First name validation result: " + result);
             Console.WriteLine("Email name validation result: " + result);
             Console.WriteLine("Phone Number validation result: " + result);
             Console.WriteLine("Password validation result: " + result);
             Console.WriteLine("Uppercase validation result: " + result);
+            Console.WriteLine("Numeric case validation result: " + result);
         }
     }
 }

@@ -75,5 +75,21 @@ namespace UnitTestProject2
             Program program = new Program();
             Assert.ThrowsException<UserException>(() => program.validateName("Sanjana"));
         }
+
+        [TestMethod]
+        public void TestValidNumericcase()
+        {
+            Program program = new Program();
+            bool result = program.validateNumericcase("sanjana5Ks");
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void TestInValidNumericcase()
+        {
+            Program program = new Program();
+            Assert.ThrowsException<UserException>(() => program.validateName("Sanj5ana"));
+
+        }
     }
 }
