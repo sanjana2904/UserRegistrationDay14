@@ -8,46 +8,63 @@ namespace UserRegistrationDay14
     {
         public bool validateName(string name)
         {
-            string pattern = @"^[A-Z]\w{2,}$";
-            bool result = Regex.IsMatch(name, pattern);
-            if (!result)
+            Func<string, bool> validateFn = (name) =>
             {
-                throw new UserException("Name Validation Failed");
-            }
-            return result;
+                string pattern = @"^[A-Z]\w{2,}$";
+                bool result = Regex.IsMatch(name, pattern);
+                if (!result)
+                {
+                    throw new UserException("Name Validation Failed");
+                }
+                return result;
+            };
+
+            return validateFn(name);
         }
 
         public bool validateEmail(string name)
         {
-            string pattern = @"^[\w]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+";
-            bool result = Regex.IsMatch(name, pattern);
-            if (!result)
+            Func<string, bool> validateFn = (name) =>
             {
-                throw new UserException("Email Name Validation Failed");
-            }
-            return result;
+                string pattern = @"^[\w]+@[a-zA-Z0-9]+.[a-zA-Z0-9]+";
+                bool result = Regex.IsMatch(name, pattern);
+                if (!result)
+                {
+                    throw new UserException("Email Name Validation Failed");
+                }
+                return result;
+            };
+            return validateFn(name);
         }
 
         public bool validatePhoneNumber(string number)
         {
-            string pattern = @"^\d{2}\s\d{10}$";
-            bool result = Regex.IsMatch(number, pattern);
-            if (!result)
+            Func<string, bool> validateFn = (number) =>
             {
-                throw new UserException("Phone Number Name Validation Failed");
-            }
-            return result;
+                string pattern = @"^\d{2}\s\d{10}$";
+                bool result = Regex.IsMatch(number, pattern);
+                if (!result)
+                {
+                    throw new UserException("Phone Number Name Validation Failed");
+                }
+                return result;
+            };
+            return validateFn(number);
         }
 
         public bool validatePassword(string password)
         {
-            string pattern = @"^.{8,}$";
-            bool result = Regex.IsMatch(password, pattern);
-            if (!result)
+            Func<string, bool> validateFn = (password) =>
             {
-                throw new UserException("Password Name Validation Failed");
-            }
-            return result;
+                string pattern = @"^.{8,}$";
+                bool result = Regex.IsMatch(password, pattern);
+                if (!result)
+                {
+                    throw new UserException("Password Name Validation Failed");
+                }
+                return result;
+            };
+            return validateFn(password);
         }
 
 
