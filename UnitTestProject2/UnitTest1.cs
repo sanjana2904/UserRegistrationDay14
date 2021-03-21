@@ -48,6 +48,19 @@ namespace UnitTestProject2
             Assert.ThrowsException<UserException>(() => program.validateName("917708796223"));
         }
 
+        public void TestValidPassword()
+        {
+            Program program = new Program();
+            bool result = program.validatePhoneNumber("sanjanaks");
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void TestInValidPassword()
+        {
+            Program program = new Program();
+            Assert.ThrowsException<UserException>(() => program.validateName("sanjanaks"));
+        }
 
     }
 }
